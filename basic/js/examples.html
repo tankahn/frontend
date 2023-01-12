@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <style>
+        button {
+            padding: 0.5rem;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            border-top: 1px solid #ddd;
+        }
+        button::after {
+            content: '+';
+            float: right;
+            transition: 0.2s;
+        }
+
+        .item {
+            overflow-y: hidden;
+            transition: 0.2s;
+        }
+        
+        .item p {
+            margin: 0;
+            padding: 1rem;
+        }
+        button.active::after {
+            transform: rotate(45deg);
+        } 
+        .max-h-0 {
+            max-height: 0;
+        }
+        .max-h-40 {
+            max-height: 10rem;
+        }
+
+
+    </style>
+
+    <h1>Accordion</h1>
+
+    <div class="container">
+        <button onclick="f(this)">tap1</button>
+        <div class="item max-h-0">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione adipisci voluptate ducimus vitae placeat sunt sapiente nam necessitatibus sed, similique quos blanditiis quod impedit saepe odio debitis explicabo facere ut!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <button onclick="f(this)">tap2</button>
+        <div class="item max-h-0">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione adipisci voluptate ducimus vitae placeat sunt sapiente nam necessitatibus sed, similique quos blanditiis quod impedit saepe odio debitis explicabo facere ut!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <button onclick="f(this)">tap3</button>
+        <div class="item max-h-0">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione adipisci voluptate ducimus vitae placeat sunt sapiente nam necessitatibus sed, similique quos blanditiis quod impedit saepe odio debitis explicabo facere ut!</p>
+        </div>
+    </div>
+
+    <script>
+        function f(el) {
+            console.log(el);
+
+            const item = el.nextElementSibling;
+
+            el.classList.toggle('active')
+            item.classList.toggle('max-h-0');   // toggle : 인자가 있으면 빼고, 없으면 추가하는 명령
+            item.classList.toggle('max-h-40');
+        }
+
+    </script> -->
+
+    <!-- <style>
+        button {
+            border: none;
+            background-color: transparent;
+            padding: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            border-bottom: 2px solid;
+        }
+    </style>
+
+    <h1>Beers</h1>
+
+    <div class="">
+        <button id="default" onclick="f(event, 'b0')">Guiness</button>
+        <button onclick="f(event, 'b1')">Heineken</button>
+        <button onclick="f(event, 'b2')">Buddwiser</button>
+    </div>
+
+    <div class="container">
+        <div id="b0" class="beer">
+            <h3>Guiness</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque, sunt incidunt cum omnis odio
+                possimus
+                molestias odit. Quas blanditiis accusantium ut rem aperiam odio autem magnam sint! Blanditiis, in
+                inventore?
+            </p>
+        </div>
+        <div id="b1" class="beer">
+            <h3>Heineken</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque, sunt incidunt cum omnis odio
+                possimus
+                molestias odit. Quas blanditiis accusantium ut rem aperiam odio autem magnam sint! Blanditiis, in
+                inventore?
+            </p>
+        </div>
+        <div id="b2" class="beer">
+            <h3>Budwiser</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque, sunt incidunt cum omnis odio
+                possimus
+                molestias odit. Quas blanditiis accusantium ut rem aperiam odio autem magnam sint! Blanditiis, in
+                inventore?
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function f(e, id) {
+            console.log(e);  // event 객체
+            console.log(e.target); // button
+            console.log(id);
+
+            // # 버튼 활성화
+
+            let buttons = document.querySelectorAll('button');
+
+            for (let i=o; i<buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+
+            e.target.classList.add('active');
+
+            // # 컨텐츠 활성화
+            let beers = document.getElementsByClassName('beer');
+
+            // 모든 beer 클래스를 안보이게 한다
+            for (let i = 0; i < beers.length; i++) {
+                beers[i].classList.add('hidden');
+            }
+
+            // id에 일치하는 beer만 보이게 한다
+            let beer = document.getElementById(id);
+            beer.classList.remove('hidden');
+
+        }
+
+        document.getElementById('default').click();
+    </script> -->
+
+    <!-- **************** navigation ************* -->
+
+   <!-- <style>
+     
+        header {
+            position : fixed;
+            top : 0;
+            left : 0;
+            width : 100%;
+            border: 1px solid #ddd;
+            backdrop-filter : blur(8px);
+        }
+
+        .container {
+            position: relative;
+        }
+        .container h3 {
+            text-align: center;
+            margin: 0;
+            padding : 1rem;
+        }
+        .container button {
+            position: absolute;
+            top : 0;
+            left : 0;
+            height : 100%;
+            border : none;
+            cursor : pointer;
+            font-size : 2rem;
+            background-color: transparent;
+        }
+        nav ul {
+            margin : 0;
+            padding : 0;
+            list-style : none;
+        }
+        nav a {
+            display : block;
+            text-align : center;
+            padding : 0.5rem;
+            text-decoration: none;
+            border-top: 1px solid #ddd;
+            color: #555
+        }
+        nav a:hover {
+            color: #000;
+            font-weight: bold;
+        }
+        main {
+            padding-top : 3rem;
+            min-height: 1000px;
+        }
+        .hidden {
+            display : none;
+        }
+
+    </style>
+
+    <header>
+        <div class="container">
+            <button>&#9776;</button>
+            <h3>Logo</h3>
+        </div>
+        <nav class="hidden">
+            <ul>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Top navigation</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam voluptates debitis corporis omnis odit nesciunt blanditiis eos, libero repellat fuga, aliquid mollitia perspiciatis maxime? Itaque unde fugit accusantium facilis temporibus?</p>
+    </main>
+
+    <script>
+        const button = document.querySelector('button');
+        
+        button.addEventListener('click',(e) => {
+            let nav = document.querySelector('nav');
+
+            nav.classList.toggle('hidden');
+        })
+
+    </script>  -->
+
+   <!-- <style>
+        header button {
+            font-size: 2rem;
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 15rem;
+            height: 100%;
+            background-color: #fff;
+            z-index:1;
+            transition: 0.2s;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav h1{
+            text-align: center;
+        }
+        nav a {
+            display: block;
+            padding: 0.75rem;
+            text-decoration: none;
+            color: #000;
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0 0 0 / 0.2);
+        }
+        .-left-60 {
+            left: -15rem;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <header>
+        <button>&#9776;</button>
+    </header>
+
+    <div class="container">
+        <nav class="-left-60">
+            <h1>Logo</h1>
+            <ul>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="overlay" class="hidden"></div>
+    </div>
+
+    <main>
+        <h1>Side Bar</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias odit enim repellendus voluptates facere nihil, corporis consequuntur recusandae cumque fugiat totam? Mollitia reprehenderit ut eius possimus quod itaque, natus vitae!</p>
+    </main>
+
+    <script>
+        let button = document.querySelector('button');
+        let nav = document.querySelector('nav');
+        let overlay = document.getElementById('overlay');
+
+        button.addEventListener('click', (e) => {
+            nav.classList.remove('-left-60');
+            overlay.classList.remove('hidden');
+        })
+
+        overlay.addEventListener('click', (e) => {
+            nav.classList.add('-left-60');
+            overlay.classList.add('hidden');
+        })
+    </script> -->
+
+
+ <!-- <style>
+        #modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0 0 0 / 0.2);
+        }
+        .container {
+            background-color: #fff;
+            width: 20rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin: 100px auto 0;
+        }
+        .hidden {
+            display:none ;
+        }
+        button {
+            cursor: pointer;
+        }
+
+    </style>
+
+    <h1>Modal</h1>
+    <button>Open Modal</button>
+
+    <div id="modal" class="hidden">
+        <div class="container">
+            <h1>Modal Content</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium labore neque, hic nesciunt ab dicta, culpa corporis libero omnis, tempore doloribus cupiditate maiores? Ipsum voluptas, impedit perspiciatis enim ex velit!   
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let button = document.querySelector('button');
+        let modal = document.getElementById('modal');
+
+        button.addEventListener('click', (e) => {
+            modal.classList.remove('hidden');
+        })
+
+        modal.addEventListener('click', (e) => {
+            console.log(e.target);
+
+            if (e.target === modal) {
+                modal.classList.add('hidden')
+            }
+        })
+    </script> -->
+
+
+    <!-- <style> ////////////  모달에서 x  표시 넣기 /////////////////////
+        #modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0 0 0 / 0.2);
+        }
+        .container {
+            background-color: #fff;
+            width: 20rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin: 100px auto 0;
+        }
+        .hidden {
+            display:none ;
+        }
+        span {
+            position: relative;
+            top : 0;
+            float: right;
+            }
+        
+            span:hover {
+            cursor: pointer;
+        }
+        
+
+    </style>
+
+    <h1>Modal</h1>
+    <button>Open Modal</button>
+
+    <div id="modal" class="hidden">
+        <div class="container">
+            <span>&times;</span>
+            <h1>Modal Content</h1>
+            
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium labore neque, hic nesciunt ab dicta, culpa corporis libero omnis, tempore doloribus cupiditate maiores? Ipsum voluptas, impedit perspiciatis enim ex velit!   
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let button = document.querySelector('button');
+        let modal = document.getElementById('modal');
+        let span = document.querySelector('span');
+
+        button.addEventListener('click', (e) => {
+            modal.classList.remove('hidden');
+        })
+
+        modal.addEventListener('click', (e) => {
+            console.log(e.target);
+
+            if (e.target === span) {
+                modal.classList.add('hidden')
+            }
+        })
+    </script> -->
+
+
+    <!-- <style>
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input {
+            padding: 0.5rem;
+            width: 12rem;
+            outline: none;
+        }
+        .red {
+            color : #f00;
+        }
+        
+    </style>
+
+    <h1>form예제: 유효성 검사</h1>
+
+        <form action="">
+            <label for="">Username</label>
+            <input type="text">
+            <p></p>
+        </form>
+
+        <script>
+            let input = document.querySelector('input');
+            let p = document.querySelector('p');
+
+            input.addEventListener('keyup', (e) => {      // keyup = 키보드를 클릭했을때.
+                // e.target : input
+                // console.log(e.target.value);
+
+                let value = e.target.value.trim();    // trim = value 양옆의 빈공간을 제거하는 메서드 
+                let message;
+
+                p.classList.add('red');
+
+                if (!value) {
+                    message = '유저이름을 입력하세요'
+                } else if (value.length < 5) {
+                    message = '유저이름이 너무 짧습니다'
+                } else {
+                    p.classList.remove('red');
+                    message = '사용가능한 유저이름 입니다'
+                }
+
+                p.innerHTML = message;
+            })
+        </script> -->
+
+
+
+
+
+    <!-- <style>
+            form {
+                display: flex;
+                height: 2rem;
+            }
+            input {
+                width: 12rem;
+                padding: 0 0.5rem;
+            }
+            button {
+                border: 0;
+                background-color: #333;
+                color: #fff;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #222;
+            }
+        </style>
+
+
+        <h1>Newsletter</h1>
+
+        <div class="container">
+            <form action="">
+                <input type="text" placeholder="bunny@example.com" required>
+                <button>구독하기</button>
+            </form>
+        </div>
+
+        <script>
+            let container = document.getElementById('container');
+            let form = document.querySelector('form');
+
+            form.addEventListener('subit', (e) => {
+
+                /*
+                    Event.preventDefault()
+
+                    엘리먼트의 기본 기능을 실행하지 않는다
+                    예) 폼을 제출하지 않음
+
+                    AJAX 요청과 함께 사용된다
+                */
+
+                e.preventDefault();
+
+                // AJAX 요청
+
+                container.innerHTML = '<h1>구독해주셔서 감사합니다</h1>'
+            })
+        </script> -->
+
+
+
+    <!--         
+    <style>
+        
+        form {
+            width: 20rem;
+        }
+
+        input, textarea {
+            padding: 0.5rem;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        
+    </style>
+
+
+    <div class="container">
+        <form action="">
+            <h1>Contact</h1>
+            <input type="text" placeholder="성함" name="name" >
+            <input type="text" placeholder="이메일" name="email">
+            <textarea name="message" id="" cols="30" rows="10" placeholder="메시지"></textarea>
+            <button>보내기</button>
+        </form>
+    </div>
+
+        <script>
+
+            let form = document.querySelector('form'); -->
+
+    <!-- // // form.addEventListener('submit', (e) => {
+
+            //     e.preventDefault();
+
+            //     let formData = new FormData(form);
+
+            //     // console.log(formData.get('name'));
+            //     // console.log(formData.get('email'));
+            //     // console.log(formData.get('message'));
+
+            //     if (!formData.get('name')) {
+            //         return alert('이름을 입력하세요')
+            //     }
+            //     if (!formData.get('email')) {
+            //         return alert('이메일을 입력하세요')
+            //     }
+            //     if (!formData.get('message')) {
+            //         return alert('메시지를 입력하세요')
+            //     }
+
+
+            //     // 서버에 제출
+
+            //     let container = document.getElementById('container');
+            //     container.innerHTML = '<h1>빠른 시일내에 연락드리겠습니다</h1>'
+            // })
+
+            // form.addEventListener('submit', (e) => {
+            //     try {
+
+            //         e.preventDefault();
+
+            //         let formData = new FormData(e.target);
+
+            //         if(!formData.get('name')) {
+            //             throw '이름을 입력하세요'
+            //         }
+            //         if(!formData.get('email')) {
+            //             throw '이메일을 입력하세요'
+            //         }
+            //         if(!formData.get('message')) {
+            //             throw '메시지를 입력하세요'
+            //         }
+                    
+            //         document.getElementById('contailner').innerHTML = '빠른 시일내에 연락드리겠습니다'
+
+
+            //     } catch (err) {
+            //         alert(err)
+            //     }
+            // }) -->
+
+    <!-- </script> -->
+
+    <!-- 
+        <style>
+            #main {
+                width: 300px;
+                height: 200px;
+                object-fit: cover;
+                background-color: #ddd;
+            }
+            .container {
+                display: flex;
+            }
+            .container img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                cursor: pointer;
+                opacity: 0.8;
+            }
+            .container img:hover {
+                opacity: 1;
+            }
+        </style>
+
+        <img src="C:\Users\Administrator\Documents\프론트엔드_AHN\image\bunny.jpg" alt="" id="main">
+
+        <div class="container">
+            <img src="C:\Users\Administrator\Documents\프론트엔드_AHN\image\bunny.jpg" alt="" onclick="f(this)">
+            <img src="C:\Users\Administrator\Documents\프론트엔드_AHN\image\cat.jpg" alt="" onclick="f(this)">
+            <img src="C:\Users\Administrator\Documents\프론트엔드_AHN\image\chita.jpg" alt="" onclick="f(this)">
+        </div>
+
+        <script>
+            function f(el) {
+
+                // console.log(el.src);
+
+                // 메인이미지의 소스를 선택된 이미지의 소스로 소스만 변경하는 방법
+                let main = document.getElementById('main');
+                main.src = el.src;
+            }
+        </script> -->
+
+
+
+    <!-- <h1>Q. Modal Gallery</h1>
+    <style>
+        #modal {
+            position: fixed;
+            background-color: rgba(0 0 0 / 0.8);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #main {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            margin: 100px auto 0;
+        }
+        .container {
+            display: flex;
+        }
+
+        .container img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+           
+        }
+
+        .container img:hover {
+            opacity: 1;
+        }
+        .hidden {
+            display: none;
+        }
+
+        
+    </style>
+
+    <div id="modal" class="hidden">
+        <img src="" alt="" id="main">
+    </div>
+
+    <div class="container">
+        <img src="C:\Users\Administrator\Documents\프론트엔드_AHN\image\bunny.jpg" alt="" onclick="f(this)">
+        <img src="C:\Users\Administrator\Documents\프론트엔드_AHN\image\cat.jpg" alt="" onclick="f(this)">
+        <img src="C:\Users\Administrator\Documents\프론트엔드_AHN\image\chita.jpg" alt="" onclick="f(this)">
+    </div>
+
+
+    <script>
+
+        let main = document.getElementById('main');
+        let modal = document.getElementById('modal');
+
+        function f(el) {
+            modal.classList.remove('hidden')
+            main.src = el.src;
+        }
+
+        // 모달에서 메인이미지가 아닌 부분을 클릭한 경우
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        })
+    </script> -->
+
+    <!-- <h1>Carousel</h1>
+    <style>
+        *{box-sizing: border-box;}
+        .wrap {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+        }
+        #container {
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+            display: inline-flex;
+            transition: 0.2s;
+        }
+        .item {
+            width: inherit;
+            height: inherit;
+            border: 1px dashed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .active {
+            color: #00f;
+        }
+    </style>
+
+    <div class="wrap">
+        <div id="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <button id="prev" class="hidden" onclick="f(-1)">&#10094;</button>
+        <button id="next" onclick="f(1)">&#10095;</button>
+    </div>
+
+    <div class="indicator">
+        <span class="dot active">*</span>
+        <span class="dot">*</span>
+        <span class="dot">*</span>
+    </div>
+    
+    <script>
+        let index = 0;
+        let container = document.getElementById('container');
+        let prev = document.getElementById('prev');
+        let next = document.getElementById('next');
+        let dots = document.querySelectorAll('.dot');
+
+        // console.log(dots);  // NodeList
+
+        function f(data) {
+            index += data;
+
+            console.log(index);
+
+            // # 이미지 이동
+            container.style.transform = `translateX(-${index * 200}px)`
+
+            // # 이전 버틑
+            if (index === 0 ) {
+                prev.classList.add('hidden')
+            } else {
+                prev.classList.remove('hidden')
+            }
+
+            // # 다음 버튼
+            if (index === 2 ) {
+                next.classList.add('hidden')
+            } else {
+                next.classList.remove('hidden')
+            }
+        
+
+            // # Indicator
+            for (let dot of dots){
+                dot.classList.remove('active');
+            }
+
+            dots[index].classList.add('active');
+        }
+    </script> -->
+
+    <!-- <style>
+    .container {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+    .item {
+      width: inherit;
+      height: inherit;
+    }
+    img {
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+    .indicator {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+    .indicator .dot {
+      color: #888;
+    }
+    .indicator .active {
+      color: #000;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+
+
+  <h1>Auto carousel</h1>
+  <div class="container">
+    <div class="item">
+      <img src="https://cdn.huffingtonpost.kr/news/photo/201903/80870_153636.png" alt="">
+    </div>
+    <div class="item hidden">
+      <img src="data:image/jpeg;base64,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" alt="">
+    </div>
+    <div class="item hidden">
+      <img src="https://t1.daumcdn.net/cfile/tistory/99C1A4385E395C8C13" alt="">
+    </div>
+    <div class="indicator">
+      <span class="dot active">*</span>
+      <span class="dot">*</span>
+      <span class="dot">*</span>
+    </div>
+  </div>
+  <script>
+      let index = 0;
+      let items = document.querySelectorAll('.item');
+      let dots = document.querySelectorAll('.dot');
+      setInterval(f, 3000);
+      function f() {
+        index += 1;
+        if (index===3) {
+          index = 0;
+        }
+        console.log(index);
+        // # 이미지
+        for (let item of items) {
+          item.classList.add('hidden');
+        }
+        items[index].classList.remove('hidden');
+        // # Indicator
+        for (let dot of dots) {
+          dot.classList.remove('active');
+        }
+        dots[index].classList.add('active');
+      }
+  </script> -->
+
+
+  <!-- <style>
+    #drop_zone {
+      border: 4px dashed #888;
+      width: 200px;
+      height: 100px;
+      padding: 1rem;
+    }
+  </style>
+  <h1>Drag and Drop</h1>
+  <div id="container">
+    <div id="drop_zone">
+      <p><i>여기</i>에 파일을 드래그 앤 드랍 하세요</p>
+    </div>
+  </div>
+  <script>
+    let dropZone = document.getElementById('drop_zone');
+    dropZone.addEventListener('dragover', dragOverHandler);
+    dropZone.addEventListener('drop', dropHandler);
+    function dropHandler(e) {
+      e.preventDefault(); // 브라우저가 파일을 열지 않는다
+      console.log('드랍되었습니다');
+      console.log(e.dataTransfer.files);
+      let files = Array.from(e.dataTransfer.files);
+      console.log(files);
+      for (let file of files) {
+        console.log(file.name);
+      }
+      // ... 서버에 제출
+      document.getElementById('container').innerHTML = '<h1>제출되었습니다</h1>'
+    }
+    function dragOverHandler(e) {
+      console.log('드래그 중입니다');
+      e.preventDefault(); // 브라우저가 파일을 열지 않는다
+    }
+  </script> -->
+
+
+  <!-- <style> 
+    html {scroll-behavior: smooth;}
+    body {
+      min-height: 1000px;
+    }
+    button {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+
+  <h1>Top button</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos perspiciatis eius fugiat illum amet fuga dolor
+    consectetur, vero rerum tempore facilis qui minima vel dolores minus rem, voluptate dolore voluptatem.</p>
+  <button class="hidden"> 
+    Top
+  </button>
+
+
+  <script>
+
+    let button = document.querySelector('button');
+
+    window.addEventListener('scroll', (e) => {
+      console.log(document.documentElement.scrollTop);
+
+      if (document.documentElement.scrollTop < 200) {
+        button.classList.add('hidden')
+      } else {
+        button.classList.remove('hidden');
+      }
+    })
+
+    button.addEventListener('click', (e) => {
+      document.documentElement.scrollTop = 0;
+    })  
+
+
+    </script>  -->
+
+</body>
+
+</html>
