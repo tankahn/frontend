@@ -209,19 +209,304 @@ export default App;
 //   )
 // }
 
-function App() {
+// function App() {
   
-  return (
-    <>
-      <h3>JSX 조건문</h3>
-      <p>!(부정), ? (삼항연산자)</p>
+//   return (
+//     <>
+//       <h3>JSX 조건문</h3>
+//       <p>!(부정), ? (삼항연산자)</p>
 
-      <ul>
-        <li>{!'Foo'}</li>
-        <li>{true ? 'Bar' : ''}</li>
-        <li>{false ? '' : 'Baz'}</li>
+//       <ul>
+//         <li>{!'Foo'}</li>
+//         <li>{true ? 'Bar' : ''}</li>
+//         <li>{false ? '' : 'Baz'}</li>
 
-      </ul>
-    </>
-  )
-}
+//       </ul>
+//     </>
+//   )
+// }
+
+/*
+  5 JSX 에서 반복문 출력하기
+*/
+
+// function App() {
+//   const arr=['foo', 'bar','baz'];
+
+//   // const r = arr.map((item,index, arr) => {
+//   //   return item.toUpperCase();
+//   // })
+
+//   // console.log(r);
+
+//   return (
+//     <>
+//     <h1>JSX 반복문</h1>
+//     <ul>
+//       {arr.map((item, index) => (
+//         <li key={index}>{item}</li>
+//       ))}
+//     </ul>
+//     </>
+//   )
+// }
+
+
+// function App() {
+//   const beers = [
+//     {name: 'Heineken', origin: 'Netherlands'},
+//     {name: 'Guiness', origin: 'Irelands'},
+//     {name: 'Asahi', origin: 'Japan'}
+//   ]
+
+//   return (
+//     <>
+//     <h1>세계맥주</h1>
+//     <ul>
+//       {beers.map((beer,index) => (
+//         <li key={index}>{beer.name} {beer.origin}</li>
+//         // <li key={index}>{beer.name + ', ' + beer.origin}</li>
+//       ))}
+//     </ul>
+//     </>
+//   )
+// }
+
+/*
+  컴포넌트
+
+  1 컴포넌트란
+  UI를 설계하는데 쓰이는 독립적이고 재사용가능한 부품
+
+  2 컴포넌트의 종류
+    함수 컴포넌트
+    클래스 컴포넌트
+
+  3 컴포넌트의 합성
+    컴포넌트 내에서 다른 컴포넌트를 호출한다 
+
+*/
+
+// function App () {
+
+//   return (
+//     <>
+//       <h1>Youtube</h1>
+//       <Content />
+
+//       <h2>Comments</h2>
+//       <Comments />
+
+//       <hr />
+
+//       <h2>Suggested</h2>
+//       <Suggested />
+//     </>
+//   )
+// }
+
+// function Content() {
+//   return (
+//     <div>
+//       <h2>고양이는 액체일까?</h2>
+//       <img src="https://img.insight.co.kr/static/2018/04/12/700/6qw69046p89mc04erkcx.jpg"
+//            art=""
+//            width="100%"
+//            />
+//     </div>
+//   )
+// }
+
+// function Comments() {
+//   return (
+//     <ul>
+//       <li>유치하게 등수는...3빠</li>
+//       <li>2빠</li>
+//       <li>1빠</li>
+//     </ul>
+//   )
+// }
+
+// function Suggested() {
+//   return (
+//     <ul>
+//       <li>고양이는 정말 폭력적일까?</li>
+//       <li>고양이는 정말 자기가 신이라고 생각할까?</li>
+//       <li>냥냥펀치는 얼마나 아플까?</li>
+//     </ul>
+//   )
+// }
+
+// function App() {
+  
+//   return (
+//     <>
+//     <h1>Instagram</h1>
+//     <Profile />   
+
+//     <h2>Suggested</h2>
+//     <Suggested />
+
+//     <h2>Timeline</h2>
+//     <Timeline />
+//     </>
+//     )
+    
+// }
+
+
+
+// function Profile() {
+//   return(
+//   <div>
+//     <img src="https://blog.kakaocdn.net/dn/kTVSt/btrRQig7IHH/yFvdRQsLzWEsKyNukhvFS1/img.png"
+//          style={{width:'100px', height:'100px', objectFit:'cover', borderRadius:'50%'}}
+//          />
+//     <h3>다나카상</h3>
+//     <p>안녕하세요 여러봉구, 다나카입니다</p>
+//   </div>
+  
+//   )
+// }
+
+// function Suggested () {
+//   return (
+//     <ul>
+//     <li>나몰라 패밀리 공식계정</li>
+//     <li>나몰라 패밀리 김태환</li>
+//     <li>아싸 최우선</li>
+//   </ul>
+//     )
+// }
+
+// function Timeline () {
+//   return (
+//     <ul>
+//       <li>시그니처 아르마니 티셔츠 입고 왔어요~</li>
+//       <li>웃찾사 때보다 인기도 수입도 10배</li>
+//       </ul>
+//   )
+// }
+
+/*
+ Props
+
+ 1 Props 개념
+ 2 사용방법
+ 3 children props
+ 4 Context Hook
+
+*/
+
+ /*
+  1 props 개념
+  컴포넌트에 전달되는 인자
+ */
+
+  // function App() {
+  //   const irishBeer = {name:'Guiness', origin:'Ireland', available: false}
+
+  //   return (
+  //     <>
+  //       <h1>맥주</h1>
+  //       <Beer beer={irishBeer} />
+  //      </>
+  //   )
+  // }
+
+  // function Beer(props) {
+  //   console.log(props) //properties (속성의 집합) = 객체
+
+  //   console.log(props.beer);
+
+  //   const beer = props.beer;
+
+  //   return (
+  //     <ul>
+  //       <li>이름 : {beer.name}</li>
+  //       <li>원산지 : {beer.origin}</li>
+  //       <li>판매중 : {beer.available ? '예' : '아니오'}</li>
+  //     </ul>
+  //   )
+  // }
+
+
+  // 서버로부터 응답받은 데이터
+  const video = {
+    title: '고양이는 액체일까?',
+    src: "https://img.insight.co.kr/static/2018/04/12/700/6qw69046p89mc04erkcx.jpg"
+  }
+
+  const suggestedVideo = [
+    {id:'a0', title:'고양이는 정말 폭력적일까?'},
+    {id:'a1', title:'고양이는 정말 자기가 신이라고 생각할까?'},
+    {id:'a2', title:'냥냥펀치는 얼마나 아플까?'},
+  ];
+
+  const comments = [
+    {id:'c0', content:'1빠'},
+    {id:'c1', content:'2빠'},
+    {id:'c2', content:'유치하게 등수는... 3빠'},
+  ];
+
+  function App() {
+    return (
+      <>
+        <h1>Youtube</h1>
+        <Content video={video} />
+
+        <Comments comments={comments} />
+
+        <Suggested suggestedVideos={suggestedVideo} />
+      </>
+    )
+  }
+
+  function Content(props) {
+
+    const video=props.video;
+
+    return (
+      <div>
+        <h2>{video.title}</h2>
+        <img
+        src={video.src}
+        alt=""
+        width="100%"
+        />
+      </div>
+    )
+  }
+
+  function Comments(props) {
+
+    const comments = props.comments;
+
+    console.log(comments);
+
+    return (
+      <>
+        <h1>Comments</h1>
+        <ul>
+          {comments.map(comment => (
+            <li key={comment.id}>{comment.content}</li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  function Suggested(props) {
+    const suggestedVideos = props.suggestedVideos;
+
+    console.log(suggestedVideos);
+
+    return (
+      <>
+      <h2>Suggested</h2>
+      {suggestedVideos.map(suggestedVideo => (
+        <li key={suggestedVideo.id}>{suggestedVideo.title}</li>
+      ))}
+      </>
+    )
+  }
