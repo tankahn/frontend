@@ -1,4 +1,10 @@
-import React from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState
+}
+
+  from 'react';
 
 export default App;
 
@@ -210,7 +216,7 @@ export default App;
 // }
 
 // function App() {
-  
+
 //   return (
 //     <>
 //       <h3>JSX 조건문</h3>
@@ -338,7 +344,7 @@ export default App;
 // }
 
 // function App() {
-  
+
 //   return (
 //     <>
 //     <h1>Instagram</h1>
@@ -351,7 +357,7 @@ export default App;
 //     <Timeline />
 //     </>
 //     )
-    
+
 // }
 
 
@@ -365,7 +371,7 @@ export default App;
 //     <h3>다나카상</h3>
 //     <p>안녕하세요 여러봉구, 다나카입니다</p>
 //   </div>
-  
+
 //   )
 // }
 
@@ -398,115 +404,424 @@ export default App;
 
 */
 
- /*
-  1 props 개념
-  컴포넌트에 전달되는 인자
- */
+/*
+ 1 props 개념
+ 컴포넌트에 전달되는 인자
+*/
 
-  // function App() {
-  //   const irishBeer = {name:'Guiness', origin:'Ireland', available: false}
+// function App() {
+//   const irishBeer = {name:'Guiness', origin:'Ireland', available: false}
 
-  //   return (
-  //     <>
-  //       <h1>맥주</h1>
-  //       <Beer beer={irishBeer} />
-  //      </>
-  //   )
-  // }
+//   return (
+//     <>
+//       <h1>맥주</h1>
+//       <Beer beer={irishBeer} />
+//      </>
+//   )
+// }
 
-  // function Beer(props) {
-  //   console.log(props) //properties (속성의 집합) = 객체
+// function Beer(props) {
+//   console.log(props) //properties (속성의 집합) = 객체
 
-  //   console.log(props.beer);
+//   console.log(props.beer);
 
-  //   const beer = props.beer;
+//   const beer = props.beer;
 
-  //   return (
-  //     <ul>
-  //       <li>이름 : {beer.name}</li>
-  //       <li>원산지 : {beer.origin}</li>
-  //       <li>판매중 : {beer.available ? '예' : '아니오'}</li>
-  //     </ul>
-  //   )
-  // }
+//   return (
+//     <ul>
+//       <li>이름 : {beer.name}</li>
+//       <li>원산지 : {beer.origin}</li>
+//       <li>판매중 : {beer.available ? '예' : '아니오'}</li>
+//     </ul>
+//   )
+// }
 
 
-  // 서버로부터 응답받은 데이터
-  const video = {
-    title: '고양이는 액체일까?',
-    src: "https://img.insight.co.kr/static/2018/04/12/700/6qw69046p89mc04erkcx.jpg"
-  }
+// 서버로부터 응답받은 데이터
+// const video = {
+//   title: '고양이는 액체일까?',
+//   src: "https://img.insight.co.kr/static/2018/04/12/700/6qw69046p89mc04erkcx.jpg"
+// }
 
-  const suggestedVideo = [
-    {id:'a0', title:'고양이는 정말 폭력적일까?'},
-    {id:'a1', title:'고양이는 정말 자기가 신이라고 생각할까?'},
-    {id:'a2', title:'냥냥펀치는 얼마나 아플까?'},
-  ];
+// const suggestedVideo = [
+//   {id:'a0', title:'고양이는 정말 폭력적일까?'},
+//   {id:'a1', title:'고양이는 정말 자기가 신이라고 생각할까?'},
+//   {id:'a2', title:'냥냥펀치는 얼마나 아플까?'},
+// ];
 
-  const comments = [
-    {id:'c0', content:'1빠'},
-    {id:'c1', content:'2빠'},
-    {id:'c2', content:'유치하게 등수는... 3빠'},
-  ];
+// const comments = [
+//   {id:'c0', content:'1빠'},
+//   {id:'c1', content:'2빠'},
+//   {id:'c2', content:'유치하게 등수는... 3빠'},
+// ];
 
-  function App() {
-    return (
-      <>
-        <h1>Youtube</h1>
-        <Content video={video} />
+// function App() {
+//   return (
+//     <>
+//       <h1>Youtube</h1>
+//       <Content video={video} />
 
-        <Comments comments={comments} />
+//       <Comments comments={comments} />
 
-        <Suggested suggestedVideos={suggestedVideo} />
-      </>
-    )
-  }
+//       <hr />
 
-  function Content(props) {
+//       <Suggested suggestedVideos={suggestedVideo} />
+//     </>
+//   )
+// }
 
-    const video=props.video;
+// function Content(props) {
 
-    return (
-      <div>
-        <h2>{video.title}</h2>
-        <img
-        src={video.src}
-        alt=""
-        width="100%"
-        />
-      </div>
-    )
-  }
+//   const video=props.video;
 
-  function Comments(props) {
+//   return (
+//     <div>
+//       <h2>{video.title}</h2>
+//       <img
+//       src={video.src}
+//       alt=""
+//       width="100%"
+//       />
+//     </div>
+//   )
+// }
 
-    const comments = props.comments;
+// function Comments(props) {
 
-    console.log(comments);
+//   const comments = props.comments;
 
-    return (
-      <>
-        <h1>Comments</h1>
-        <ul>
-          {comments.map(comment => (
-            <li key={comment.id}>{comment.content}</li>
-          ))}
-        </ul>
-      </>
-    )
-  }
+//   console.log(comments);
 
-  function Suggested(props) {
-    const suggestedVideos = props.suggestedVideos;
+//   return (
+//     <>
+//       <h1>Comments</h1>
+//       <ul>
+//         {comments.map(comment => (
+//           <li key={comment.id}>{comment.content}</li>
+//         ))}
+//       </ul>
+//     </>
+//   )
+// }
 
-    console.log(suggestedVideos);
+// function Suggested(props) {
+//   const suggestedVideos = props.suggestedVideos;
 
-    return (
-      <>
-      <h2>Suggested</h2>
-      {suggestedVideos.map(suggestedVideo => (
-        <li key={suggestedVideo.id}>{suggestedVideo.title}</li>
-      ))}
-      </>
-    )
-  }
+//   console.log(suggestedVideos);
+
+//   return (
+//     <>
+//     <h2>Suggested</h2>
+//     {suggestedVideos.map(suggestedVideo => (
+//       <li key={suggestedVideo.id}>{suggestedVideo.title}</li>
+//     ))}
+//     </>
+//   )
+// }
+
+// const profile = {
+//   username: '다나카',
+//   image: "https://blog.kakaocdn.net/dn/kTVSt/btrRQig7IHH/yFvdRQsLzWEsKyNukhvFS1/img.png",
+//   bio: '안녕하세요 여러봉구, 다나카입니다'
+// };
+
+// const accounts = [
+//   { id: 's0', username: '나몰라 패밀리 공식계정' },
+//   { id: 's1', username: '나몰라 패밀리 김태환' },
+//   { id: 's2', username: '아싸 최우선' },
+// ];
+
+// const articles = [
+//   { id: 'a0', username: '시그니처 아르마니 티셔츠 입고 왔어요~' },
+//   { id: 'a1', username: '웃찾사 때보다 인기도 수입도 10배' }
+// ];
+
+// function App() {
+//   return (
+//     <>
+//       <h1>Instagram</h1>
+
+//       <Profile profile={profile} />
+
+//       <Suggested accounts={accounts} />
+
+//       <Timeline articles={articles} />
+
+//     </>
+//   )
+// }
+
+// function Profile(props) {
+//   const Profile = props.profile;
+
+//   return (
+//     <>
+//       <img
+//         src={profile.image}
+//         style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '50%' }}
+//         width="100%"
+//       />
+//       <h3>{profile.username}</h3>
+//       <p>{profile.bio}</p>
+//     </>
+
+//   )
+// }
+
+// function Suggested(props) {
+//   const accounts = props.accounts;
+
+//   return (
+
+//     <>
+//       <h1>Suggested</h1>
+//       {accounts.map(account => (
+//         <li key={account.id}>{account.username}</li>
+//       ))}
+//     </>
+//   )
+// }
+
+// function Timeline(props) {
+//    const articles = props.articles;
+
+//    return (
+
+//     <>
+//       <h2>Timeline</h2>
+//       {articles.map(article => (
+//         <li key={article.id}>{article.username}</li>
+//       ))}
+//     </>
+//    )
+
+// }
+
+/*
+3 children props
+
+컴포넌트에 자식 컴포넌트를 추가한다
+*/
+
+// function App() {
+
+//   return (
+//     <Layout>
+//       <Article />
+//     </Layout>
+//   )
+// }
+
+// function Layout(props) {
+
+//   return (
+//     <>
+//       <h1>Instagram</h1>
+
+//       <nav>
+//         <ul>
+//           <li>홈</li>
+//           <li>소개</li>
+//           <li>게시물</li>
+//         </ul>
+//       </nav>
+
+//       {props.children}
+//     </>
+//   )
+// }
+// function Article() {
+
+//   return(
+//     <>
+//       <img 
+//        src="https://blog.kakaocdn.net/dn/kTVSt/btrRQig7IHH/yFvdRQsLzWEsKyNukhvFS1/img.png"
+//        art=""
+//        width="300px"
+//        />
+//        <p>
+//         <b>danaka</b>
+//         다나카상 라디오 스타 출연했어요 ^00^
+//        </p>
+
+//        <small>1일 전</small>
+//     </>
+
+//   )
+// }
+
+/*
+ 4 useContext Hook
+ chindren 컴포넌트에 데이터를 전달하는 Hook 이다
+*/
+
+// const AuthContext = createContext();
+
+// function App() {
+
+//   return (
+//     <AuthProvider>
+//       <Layout>
+//         <Article />
+//       </Layout>
+//     </AuthProvider>
+//   )
+// }
+
+// function AuthProvider(props) {
+
+//   const value = { username: 'bunny' }
+
+//   return (
+//     <AuthContext.Provider value={value}>
+//       {props.children}
+//     </AuthContext.Provider>
+//   )
+// }
+
+
+// function Layout(props) {
+
+//   const auth = useContext(AuthContext);
+
+//   console.log(auth);
+
+//   return (
+//     <>
+//       <h1>Instagram</h1>
+
+//       <nav>
+//         <ul>
+//           <li>홈</li>
+//           <li>소개</li>
+//           <li>게시물</li>
+//         </ul>
+//       </nav>
+
+//       <p>안녕하세요 {auth.username}님</p>
+
+//       {props.children}
+//     </>
+//   )
+// }
+// function Article() {
+
+//   const auth = useContext(AuthContext);
+
+//   console.log(auth);
+
+//   return (
+//     <>
+//       <img
+//         src="https://blog.kakaocdn.net/dn/kTVSt/btrRQig7IHH/yFvdRQsLzWEsKyNukhvFS1/img.png"
+//         art=""
+//         width="300px"
+//       />
+//       <p>
+//         <b>danaka</b>
+//         다나카상 라디오 스타 출연했어요 ^00^
+//       </p>
+
+//       <small>1일 전</small>
+//     </>
+
+//   )
+// }
+
+/*
+
+  리액트에서 이벤트 처리하기
+
+*/
+
+// function App() {
+
+//   function handleClick(e) {
+//     alert('lol');
+//   }
+
+//   return (
+//     <>
+//     <h1>Basic</h1>
+//     {/* onEventName=eventHandler */}
+//     <button onClick={handleClick}>Button</button>
+//     </>
+//   )
+// }
+
+/*
+  리액트에서 HTML 업데이트하기
+*/
+
+// function App() {
+
+//   /*
+//     const [state, setState] = useState(initialValue)
+
+//     state : 컴포넌트에서 관리되는 변수
+//     setState : state를 업데이트하는 메서드
+//     initialValue : state 의 초기값
+//   */
+
+//   const [count, setCount] = useState(0);
+
+//   return (
+//     <>
+//     <h1>Count</h1>
+//     <p>{count}</p>
+//     <button onClick={() => setCount(count + 1)}>Add</button>
+//     </>
+//   )
+// }
+
+/*
+ -----위와 비슷하지만 작동안되는 예 -----
+*/
+
+// function App() {
+//   let count = 0;
+
+//   /*
+//     HTML을 업데이트하기 위해서는 DOM을 다시 리턴해야 한다
+//     DOM을 다시 리턴하기 위해서는 컴포넌트를 다시 실행해야 한다.
+//     setState는 컴포넌트를 다시 실행한다
+//     HTML이 업데이트 된다
+//   */
+
+//   function handleClick(e) {
+//     count ++;
+//   }
+
+//   return (
+//     <>
+//     <h1>Count</h1>
+//     <p>{count}</p>
+//     <button onClick={handleClick}>Add</button>
+//     </>
+//   )
+// }
+
+/*
+Q. 구독하기 버튼 만들기 
+*/
+
+function App() {
+
+  /*
+   const [subscribed, setSubscribed] = useState(false);
+  */
+
+   const [gu, noGu] = useState(false);
+    console.log(gu)
+
+  return (
+        <>
+        <h1>구독버튼</h1>
+        
+        <button onClick={() => noGu(!gu)}>
+         {gu ? '구독취소' : '구독하기'}
+         </button>
+        </>
+      )
+
+}
